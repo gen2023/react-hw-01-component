@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "author": "Romanko Evgen <gen2023@yandex.ru>",
+  "homepage": "https://gen2023.github.io/react-hw-01-component/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
