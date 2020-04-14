@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+
 const FriendListItem = ({ avatar, name, isOnline }) => (
   <li class="item">
     <span

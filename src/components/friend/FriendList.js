@@ -6,7 +6,6 @@ const FriendList = ({ friends }) => (
   <ul class="friend-list">
     {friends.map(friend => (
       <li key={friends.id}>
-        {' '}
         <FriendListItem
           avatar={friend.avatar}
           name={friend.name}
