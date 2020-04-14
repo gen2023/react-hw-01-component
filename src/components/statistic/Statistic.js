@@ -1,20 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import StatisticList from './StatisticList';
 
-const Statistic = ({ title, stats }) => (
-  <section class="statistics">
-    <h2 class="title">{title}</h2>
+const Statistic = ({ title, stats }) => {
+  const statisticsClass = ['statistics'];
+  const titleClass = ['title'];
+  const statListClass = ['stat-list'];
 
-    <ul class="stat-list">
-      {stats.map(({ id, label, percentage }) => (
-        <li class="item" key={id}>
-          <span class="label">{label}</span>
-          <span class="percentage">{percentage}%</span>
-        </li>
-      ))}
-    </ul>
-  </section>
-);
+  return (
+    <section className={statisticsClass}>
+      <h2 className={titleClass}>{title}</h2>
+
+      <ul className={statListClass}>
+        {stats.map(({ label, percentage }) => (
+          <StatisticList label={label} percentage={percentage} />
+        ))}
+      </ul>
+    </section>
+  );
+};
 
 Statistic.prototype = {
   title: PropTypes.string,

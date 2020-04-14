@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+const FriendListItem = ({ avatar, name, isOnline }) => {
+  const statusClass = ['status'];
+  const avatarClass = ['avatar'];
+  const nameClass = ['name'];
 
-const FriendListItem = ({ avatar, name, isOnline }) => (
-  <li class="item">
-    <span
-      class="status"
-      style={{ background: isOnline === true ? 'green' : 'red' }}
-    ></span>
-    <img class="avatar" src={avatar} alt="" width="48" />
-    <p class="name">{name}</p>
-  </li>
-);
+  return (
+    <Fragment>
+      <span
+        className={statusClass}
+        style={{ background: isOnline ? 'green' : 'red' }}
+      ></span>
+      <img className={avatarClass} src={avatar} alt="" width="48" />
+      <p className={nameClass}>{name}</p>
+    </Fragment>
+  );
+};
 
 FriendListItem.prototype = {
   avatar: PropTypes.string.isRequired,

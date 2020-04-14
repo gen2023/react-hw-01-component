@@ -2,21 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FriendListItem from './FriendListItem';
 
-const FriendList = ({ friends }) => (
-  <ul class="friend-list">
-    {friends.map(friend => (
-      <li key={friends.id}>
-        <FriendListItem
-          avatar={friend.avatar}
-          name={friend.name}
-          isOnline={friend.isOnline}
-        />
-      </li>
-    ))}
-  </ul>
-);
+const FriendList = ({ friends }) => {
+  const friendListClass = ['friend-list'];
+  const itemClass = ['item'];
 
-FriendList.prototype = {
-  friends: PropTypes.array.isRequired,
+  return (
+    <ul className={friendListClass}>
+      {friends.map(friend => (
+        <li className={itemClass} key={friend.id}>
+          <FriendListItem
+            avatar={friend.avatar}
+            name={friend.name}
+            isOnline={friend.isOnline}
+          />
+        </li>
+      ))}
+    </ul>
+  );
 };
+
+FriendList.propTypes = {
+  friend: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+    }).isRequired,
+  ),
+};
+
 export default FriendList;

@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import '../css/style.css';
-import Description from './profile/Description';
-import Stats from './profile/Stats';
+import Profile from './profile/Profile';
 import Statistic from './statistic/Statistic';
 import FriendList from './friend/FriendList';
 import TransactionHistory from './transactions/TransactionHistory';
@@ -12,19 +11,16 @@ import transactions from '../transactions.json';
 
 const App = () => (
   <Fragment>
-    <div class="profile">
-      <Description
-        urlImg={user.avatar}
-        name={user.name}
-        tag={user.tag}
-        location={user.location}
-      />
-      <Stats
-        followers={user.stats.followers}
-        views={user.stats.views}
-        likes={user.stats.likes}
-      />
-    </div>
+    <Profile
+      urlImg={user.avatar}
+      name={user.name}
+      tag={user.tag}
+      location={user.location}
+      followers={user.stats.followers}
+      views={user.stats.views}
+      likes={user.stats.likes}
+    />
+
     <Statistic title="Upload stats" stats={statisticalData} />
     <FriendList friends={friendData} />
     <TransactionHistory items={transactions} />
